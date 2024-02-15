@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.TeamLeagueWinners"
+             BackgroundImageSource="wallpaper.jpg">
+    <VerticalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Takım:"
+            Margin="0,30,0,0"
+            TextColor="White"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                />
+            <Picker
+                
+                x:Name="teamPicker"
+                WidthRequest="200"
+                BackgroundColor="White"
+                Margin="120,60,0,0"
+                TextColor="Red"
+                />
+
+            <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"
+                x:Name="lblTeam"
+                
+                />
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Lig:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                 Margin="0,20,0,0"
+                TextColor="White"  
+                FontAttributes="Bold"
+              
+                />
+            <Picker
+                
+                x:Name="leaguePicker"
+                WidthRequest="200"
+               BackgroundColor="White"
+                Margin="150,30,0,0"
+                TextColor="Red"
+                />
+
+            <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"
+                x:Name="lblLeague"
+                
+                />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Sezon Başlangıç Yılı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,30,0,0"
+                TextColor="White"/>
+            <Slider
+                Minimum="1900"
+                Maximum="2024"
+                x:Name="startSlider"
+                WidthRequest="200"
+                BackgroundColor="WhiteSmoke"
+                MinimumTrackColor="Blue" 
+                ThumbColor="Black"
+                Margin="15,40,0,0"
+                MaximumTrackColor="Red"/>
+            <Label 
+                x:Name="lblStartYear"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Sezon Bitiş Yılı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="White"
+                Margin="0,30,0,0"/>
+
+            <Slider
+                Minimum="1900"
+                Maximum="2024"
+                
+                x:Name="endSlider"
+                WidthRequest="200"
+                BackgroundColor="White"
+                Margin="60,40,0,0"
+                ThumbColor="Black"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+
+            <Label 
+                x:Name="lblEndYear"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" Margin="0,30,0,0" >
+            <Button
+                x:Name="Save"
+                Text="Kaydet"
+                WidthRequest="150"
+                 Margin="0,20,0,0"
+                HeightRequest="30"
+                />
+
+            <Button
+                x:Name="List"
+                Text="Listele"
+                WidthRequest="150"
+                Margin="20,20,0,0"
+                HeightRequest="30"
+                />
+
+            <Button
+                x:Name="Delete"
+                Text="Sil"
+                Margin="20,20,0,0"
+                WidthRequest="150"
+                HeightRequest="30"
+                />
+
+            <Button
+                x:Name="Update"
+                Text="Güncelle"
+                  Margin="20,20,0,0"
+                WidthRequest="150"
+                HeightRequest="30"
+                />
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="lstTeamLeagueWinner" SelectionMode="Single" SelectionChanged="lstTeamLeagueWinner_SelectionChanged" Margin="50,0,0,0"
+                        BackgroundColor="Chocolate" Opacity="1" >
+            <CollectionView.ItemTemplate >
+                <DataTemplate>
+                    <Grid ColumnDefinitions="auto,auto,auto,auto" RowDefinitions="50,50" Padding="20" ColumnSpacing="20">
+                        <Label  Text="{Binding TeamName }"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding LeagueName}"/>
+                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding StartYear}"/>
+                        <Label Grid.Row="0" Grid.Column="3" Text="{Binding EndYear}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.TeamSearch"
+             BackgroundImageSource="search.jpg"
+             >
+    <VerticalStackLayout>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <!--<SearchBar
+                x:Name="SearchofTeam" 
+                WidthRequest="1000"
+                TextChanged="SearchofTeam_TextChanged"   
+                HorizontalTextAlignment="Center"
+                FontSize="25"
+                BackgroundColor="#E24205"
+                CancelButtonColor="Teal"
+                PlaceholderColor="Black"
+                TextColor="WhiteSmoke"
+                FontAttributes="Bold">
+
+            </SearchBar>-->
+            <SearchBar
+                x:Name="SearchofTeam" 
+                WidthRequest="1000"
+                TextChanged="SearchofTeam_TextChanged"   
+                HorizontalTextAlignment="Center"
+                FontSize="25"
+                Opacity="0.8"
+                Margin="0,40,0,0"
+                BackgroundColor="White"
+                CancelButtonColor="Teal"
+                Placeholder="Aratmak İstediğiniz Takım "
+                PlaceholderColor="Black"
+                TextColor="Black"
+                FontAttributes="Bold">
+
+            </SearchBar>
+
+        </StackLayout>
+
+
+        <CollectionView x:Name="lstteam" SelectionMode="Single"  Margin="50,0,0,0"
+                        BackgroundColor="Teal" 
+                        >
+            <CollectionView.ItemTemplate >
+                <DataTemplate>
+                    <Grid ColumnDefinitions="auto,auto,auto" RowDefinitions="auto" Padding="20" ColumnSpacing="150" WidthRequest="500">
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding teamName }"/>
+                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding teamStadiumName }"/>
+                        <!--<Label Grid.Row="1" Grid.Column="3" Text="{Binding teamStadiumCapacity}"/>-->
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

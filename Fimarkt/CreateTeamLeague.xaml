@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.CreateTeamLeague"
+             BackgroundImageSource="wallpaper.jpg">
+    <VerticalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Takım:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                  Margin="0,30,0,0"
+                TextColor="White"
+                />
+            <Picker
+                
+                x:Name="teamPicker"
+                WidthRequest="200"
+                BackgroundColor="WhiteSmoke"
+                TextColor="#4682b4"
+               Margin="140,30,0,0"
+                FontAttributes="Bold"
+                SelectedIndexChanged="teamPicker_SelectedIndexChanged"/>
+
+            <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="WhiteSmoke"
+                x:Name="lblTeam"
+                
+                />
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Lig:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,30,0,0"
+                TextColor="WhiteSmoke"
+                FontAttributes="Bold"
+                />
+            <Picker
+                
+                x:Name="leaguePicker"
+                WidthRequest="200"
+                BackgroundColor="WhiteSmoke"
+                Margin="170,30,0,0"
+                TextColor="Aquamarine"
+                SelectedIndexChanged="leaguePicker_SelectedIndexChanged"/>
+
+            <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"
+                x:Name="lblLeague"
+                
+                />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Sezon Başlangıç Yılı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,20,0,0"
+                TextColor="WhiteSmoke"
+                FontAttributes="Bold"/>
+            <Slider
+                Minimum="1900"
+                Maximum="2024"
+                x:Name="startSlider"
+                ValueChanged="startSlider_ValueChanged"
+                WidthRequest="200"
+                Margin="20,20,0,0"
+                BackgroundColor="WhiteSmoke"
+                ThumbColor="Black"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+            <Label 
+                x:Name="lblStartYear"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Sezon Bitiş Yılı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+               Margin=" 0,30,0,0"
+                FontAttributes="Bold"
+                TextColor="White"/>
+
+            <Slider
+                Minimum="1900"
+                Maximum="2024"
+                
+                x:Name="endSlider"
+                ValueChanged="endSlider_ValueChanged"
+                WidthRequest="200"
+                Margin="70,30,0,0"
+                BackgroundColor="White"
+                MinimumTrackColor="Blue" 
+                ThumbColor="Black"
+                MaximumTrackColor="Red"/>
+
+            <Label 
+                x:Name="lblEndYear"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" Margin="0,50,0,0"  >
+            <Button
+                x:Name="Save"
+                Text="Kaydet"
+                WidthRequest="150"
+                Margin="0,-40,0,60"
+                HeightRequest="30"
+                Clicked="Save_Clicked"
+                />
+
+            <Button
+                x:Name="List"
+                Text="Listele"
+                 Margin="0,-40,0,60"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="List_Clicked"
+                />
+
+            <Button
+                x:Name="Delete"
+                Text="Sil"
+                WidthRequest="150"
+                 Margin="0,-40,0,60"
+                HeightRequest="30"
+                Clicked="Delete_Clicked"
+                />
+
+            <Button
+                x:Name="Update"
+                Text="Güncelle"
+                WidthRequest="150"
+                 Margin="0,-40,0,60"
+                HeightRequest="30"
+                Clicked="Update_Clicked"
+                />
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="lstTeamLeague" SelectionMode="Single" SelectionChanged="lstTeamLeague_SelectionChanged" 
+                        BackgroundColor="Black" Opacity="0.7" >
+            <CollectionView.ItemTemplate >
+                <DataTemplate>
+                    <Grid ColumnDefinitions="auto,auto,auto,auto" RowDefinitions="50,50" Padding="20" ColumnSpacing="20" Margin="20,0,0,0">
+                        <Label  Text="{Binding TeamName }"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding LeagueName}" TextColor="White"/>
+                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding StartYear}" TextColor="White"/>
+                        <Label Grid.Row="1" Grid.Column="3" Text="{Binding EndYear}" TextColor="White"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        
+
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.CreateLeague"
+             BackgroundImageSource="wallpaper.jpg"
+             >
+    <VerticalStackLayout>
+
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+                Margin="0,30,0,0"
+            Text="Lig Adı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="White"/>
+            <Entry
+                x:Name="leagueName"
+                Placeholder="Ligin adını giriniz..."
+                BackgroundColor="White"
+                PlaceholderColor="Black"
+                WidthRequest="200"
+                Margin="60,30,0,0"
+                TextColor="Black"/>
+
+
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Lig Resmi:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                   Margin="0,20,0,0"
+                TextColor="White"
+                FontAttributes="Bold"
+                />
+            <Entry
+                BackgroundColor="White"
+                WidthRequest="200"
+                TextColor="Red"
+                Margin="30,30,0,0"
+                x:Name="imageSource"/>
+
+            <Button
+                x:Name="pickFile"
+                Text="Resim Seç"
+                WidthRequest="150"
+                Margin="10,30,0,0"
+                HeightRequest="30"
+                BackgroundColor="Turquoise"
+                Clicked="pickFile_Clicked"
+                />
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout>
+
+            <Label 
+            Text="Kupa Resmi:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="White"
+                Margin="0,30,0,0"
+                />
+            <Entry
+                BackgroundColor="White"
+                WidthRequest="200"
+                TextColor="Red"
+                Margin="20,30,0,0"
+                x:Name="cupImageSource"/>
+
+            <Button
+                x:Name="pickCupFile"
+                Text="Resim Seç"
+                BackgroundColor="Turquoise"
+                WidthRequest="150"
+                Margin="20,30,0,0"
+                HeightRequest="30"
+                Clicked="pickCupFile_Clicked"
+                />
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Ülke:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="White"
+                FontAttributes="Bold"
+                Margin="0,30,0,0"
+                />
+            <Picker
+                
+                x:Name="originPicker"
+                WidthRequest="200"
+                BackgroundColor="White"
+                Margin="80,20,0,0"
+                TextColor="Red"
+                SelectedIndexChanged="originPicker_SelectedIndexChanged"/>
+
+            <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"
+                x:Name="lblCountry"
+                
+                />
+
+
+            <Button
+                x:Name="Save"
+                Text="Kaydet"
+                WidthRequest="150"
+                HeightRequest="30"
+                Margin="0,20,0,0"
+                Clicked="Save_Clicked"
+                />
+
+            <Button
+                x:Name="List"
+                Text="Listele"
+                WidthRequest="150"
+                Margin="20,20,0,0"
+                HeightRequest="30"
+                Clicked="List_Clicked"
+                />
+
+            <Button
+                x:Name="Delete"
+                Text="Sil"
+                WidthRequest="150"
+                Margin="20,20,0,0"
+                HeightRequest="30"
+                Clicked="Delete_Clicked"
+                />
+
+            <Button
+                x:Name="Update"
+                Text="Güncelle"
+                WidthRequest="150"
+                Margin="20,20,0,0"
+                HeightRequest="30"
+                Clicked="Update_Clicked"
+                />
+        </HorizontalStackLayout>
+
+
+
+        <CollectionView x:Name="lstLeague" SelectionMode="Single" SelectionChanged="lstLeague_SelectionChanged" 
+                        BackgroundColor="Black" Opacity="0.7" >
+            <CollectionView.ItemTemplate >
+                <DataTemplate>
+                    <Grid ColumnDefinitions="80,auto" RowDefinitions="50,50">
+                        <Label Text="{Binding leagueName}" TextColor="White" Margin="20,0,0,0"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+    </VerticalStackLayout>
+</ContentPage>

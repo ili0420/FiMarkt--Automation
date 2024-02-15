@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.CreateCountry"
+            BackgroundImageSource="wallpaper.jpg">
+    <VerticalStackLayout>
+       
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+                Margin="0,20,0,0"
+            Text="Ülke Adı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="White"/>
+            <Entry
+                x:Name="countryName"
+                Placeholder="Ülkenin adını giriniz..."
+                BackgroundColor="WhiteSmoke"
+                WidthRequest="200"
+                Margin="40,30,0,0"
+                TextColor="Red"/>
+
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Ülke Resmi :"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                 Margin="0,20,0,0"
+                TextColor="White"
+                />
+            <Entry
+                BackgroundColor="WhiteSmoke"
+                WidthRequest="200"
+                 Margin="10,30,0,0"
+                TextColor="Black"
+                x:Name="imageSource"/>
+            <Button
+                x:Name="pickFile"
+                Text="Resim Seç"
+                WidthRequest="150"
+                Margin="20,30,0,0"
+                HeightRequest="30"
+                BackgroundColor="Turquoise"
+                Clicked="pickFile_Clicked"
+                />
+
+
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10" Margin="0,40,0,0" >
+
+            <Button
+                x:Name="Save"
+                Text="Kaydet"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Save_Clicked"
+                Margin="0,0,0,50"
+                />
+
+            <Button
+                x:Name="List"
+                Text="Listele"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="List_Clicked"
+                Margin="0,0,0,50"
+                />
+
+            <Button
+                x:Name="Delete"
+                Text="Sil"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Delete_Clicked"
+                Margin="0,0,0,50"
+                />
+
+            <Button
+                x:Name="Update"
+                Text="Güncelle"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Update_Clicked"
+                Margin="0,0,0,50"
+                />
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="lstCountry" SelectionMode="Single" SelectionChanged="lstCountry_SelectionChanged"
+                        BackgroundColor="Black" Opacity="0.7" VerticalOptions="EndAndExpand" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="80,auto" RowDefinitions="100,100" VerticalOptions="EndAndExpand">
+                        <Label Text="{Binding countryName}" TextColor="White"  Margin="20,0,0,0"/>
+                        <Image Grid.Row="0" Grid.Column="1" Source="{Binding countryImageUrl}" WidthRequest="200"
+                               HeightRequest="200"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+
+
+    </VerticalStackLayout>
+</ContentPage>

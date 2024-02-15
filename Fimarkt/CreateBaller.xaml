@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.CreateBaller"
+              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             BackgroundImageSource="wallpaper.jpg"
+             >
+    <ScrollView>
+
+        
+       
+
+        <StackLayout>
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+            Margin="0,0,0,20"
+            Text="Futbolcu Adı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+             FontSize="20"
+             FontAttributes="Bold"
+             TextColor="White"/>
+                <Entry
+                x:Name="playerName"
+                Placeholder="Futbolcunun adını giriniz..."
+                BackgroundColor="WhiteSmoke"
+                WidthRequest="200"
+                Margin="110,10,0,0"
+                TextColor="DarkBlue"/>
+
+
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+                Margin="0,0,0,20"
+            Text="Futbolcu Soyadı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="White"
+                />
+                <Entry
+                x:Name="ballerSurname"
+                Placeholder="Futbolcunun soyadını giriniz..."
+                BackgroundColor="WhiteSmoke"
+                WidthRequest="200"
+                Margin="80,20,0,20"
+                TextColor="DarkBlue"/>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+            Text="Futbolcu Doğum Tarihi:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="White"
+                />
+                <DatePicker
+                x:Name="ballerBirthDate"
+                MinimumDate="01.01.1900"
+                WidthRequest="200"
+                Margin="10,20,0,0"
+                 BackgroundColor="White"
+                DateSelected="ballerBirthDate_DateSelected"/>
+                <Label 
+                x:Name="lblbirthDate"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+               
+                />
+
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+            Text="Doğum Yeri:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                 FontAttributes="Bold"
+                TextColor="White"
+                />
+                <Entry
+                x:Name="ballerBithPlace"
+                Placeholder="Futbolcunun doğum yerini giriniz..."
+                BackgroundColor="WhiteSmoke"
+                WidthRequest="200"
+                Margin="120,20,0,10"
+                TextColor="DarkBlue"/>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+            Text="Futbolcu Boyu:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="WhiteSmoke"
+                />
+                <Slider
+                Minimum="150"
+                Maximum="250"
+                x:Name="slider"
+                ValueChanged="slider_ValueChanged"
+                WidthRequest="200"
+                Margin="90,0,0,0"
+                BackgroundColor="WhiteSmoke"
+                MinimumTrackColor="WhiteSmoke" 
+                MaximumTrackColor="Red"
+                ThumbColor="Black"/>
+                <Label
+                x:Name="lblSslider"
+                VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="PapayaWhip"/>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+            Text="Oyuncu Pozisyonu:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+             FontSize="20"
+            Margin="0,10,0,0"
+             TextColor="White"
+                />
+                <Picker
+                x:Name="positionPicker"
+                WidthRequest="200"
+                HeightRequest="10"
+                BackgroundColor="WhiteSmoke"
+                Margin="60,20,0,0"
+                TextColor="#2564b4"/>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+            Text="Oyuncu Piyasa Değeri:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+             FontSize="20"
+              Margin="0,10,0,10"
+              TextColor="WhiteSmoke"
+                />
+
+                <Slider
+                Minimum="0.1"
+                Maximum="200"
+                x:Name="sliderMarketValue"
+                ValueChanged="sliderMarketValue_ValueChanged"
+                WidthRequest="200"
+                Margin="30,10,0,0"
+                BackgroundColor="WhiteSmoke"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"
+                ThumbColor="Black"/>
+                <Label
+                x:Name="lblMarketValue"
+                VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="Navy"/>
+
+
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+            Text="Ayak:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,20,0,0"
+                TextColor="White"
+                />
+                <Picker
+                x:Name="footPicker"
+                WidthRequest="210"
+                BackgroundColor="White"
+                Margin="180,20,0,20"
+                TextColor="Red"/>
+
+
+
+
+            </HorizontalStackLayout>
+
+
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+            Text="Uyruk:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,20,0,30"
+                TextColor="White"
+                />
+                <Picker
+                
+                x:Name="originPicker"
+                WidthRequest="210"
+                BackgroundColor="White"
+                TextColor="Black"
+                SelectedIndexChanged="originPicker_SelectedIndexChanged"
+                Margin="170,20,0,20"/>
+                <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="Black"
+                x:Name="lblCountry"
+                IsVisible="false"
+                />
+
+
+
+
+            </HorizontalStackLayout>
+
+
+
+            <HorizontalStackLayout Spacing="20" >
+                <Label 
+            Text="Oyuncu Resmi"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="White"
+                />
+                <Entry
+                BackgroundColor="WhiteSmoke"
+                WidthRequest="200"
+                TextColor="Red"
+                Margin="90,20,0,20"
+                x:Name="imageSource"/>
+                <Button
+                x:Name="pickCupFile"
+                Text="Resim Seç"
+                BackgroundColor="Turquoise"
+                WidthRequest="150"
+                Margin="20,0,0,0"
+                HeightRequest="30"
+                Clicked="pickFile_Clicked"
+                />
+
+
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="10" Margin="0,20,0,0">
+
+                <Button
+                x:Name="Save"
+                Text="Kaydet"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Save_Clicked"
+                Margin="0,0,0,50"
+                />
+
+                <Button
+                x:Name="List"
+                Text="Listele"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="List_Clicked"
+                Margin="0,0,0,50"
+                />
+
+                <Button
+                x:Name="Delete"
+                Text="Sil"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Delete_Clicked"
+                Margin="0,0,0,50"
+                />
+
+                <Button
+                x:Name="Update"
+                Text="Güncelle"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Update_Clicked"
+                Margin="0,0,0,50"
+                />
+            </HorizontalStackLayout>
+
+
+            <CollectionView x:Name="lstBaller" SelectionMode="Single" SelectionChanged="lstBaller_SelectionChanged" 
+                        BackgroundColor="Black" Opacity="0.7"  >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="80,auto" RowDefinitions="100,100" VerticalOptions="EndAndExpand"  >
+                            <Label Text="{Binding ballerName}" TextColor="White"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding ballerSurname}" TextColor="White" Margin="20,0,0,0"/>
+                            <Image Grid.Row="0" Grid.Column="2" Source="{Binding ballerImageUrl}" WidthRequest="200" Margin="20,0,0,0"
+                               HeightRequest="200" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+
+
+
+
+
+
+        </StackLayout>
+
+    </ScrollView>
+    
+
+</ContentPage>

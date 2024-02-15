@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.BallertoTeam"
+             BackgroundImageSource="wallpaper.jpg">
+    <VerticalStackLayout>
+        
+        
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Takım:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,20,0,0"
+                TextColor="White"
+                FontAttributes="Bold"
+                />
+            <Picker
+                
+                x:Name="teamPicker"
+                WidthRequest="200"
+                BackgroundColor="White"
+                Margin="220,40,0,0"
+                TextColor="Red"
+                SelectedIndexChanged="teamPicker_SelectedIndexChanged"/>
+
+            <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"
+                x:Name="lblTeam"
+                
+                />
+            
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Futbolcu:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,10,0,0"
+                FontAttributes="Bold"
+                TextColor="White"
+                />
+            <Picker
+                
+                x:Name="ballerPicker"
+                WidthRequest="200"
+                Margin="190,20,0,0"
+                BackgroundColor="White"
+                TextColor="Red"
+                SelectedIndexChanged="ballerPicker_SelectedIndexChanged"/>
+
+            <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"
+                x:Name="lblBaller"
+                
+                />
+
+
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Sözleşme Başlangıç Tarihi:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                TextColor="White"
+                />
+            <DatePicker
+                x:Name="contractStartTime"
+                MinimumDate="01.01.1900"
+                WidthRequest="200"
+                Margin="30,40,0,0"
+                BackgroundColor="White"
+                DateSelected="contractStartTime_DateSelected"/>
+            <Label 
+                x:Name="lblstarttime"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="Black"
+                />
+
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Sözleşme Bitiş Tarihi:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontAttributes="Bold"
+                FontSize="20"
+                Margin="0,20,0,0"
+                TextColor="White"
+                />
+            <DatePicker
+                x:Name="contractEndTime"
+                MinimumDate="01.01.1900"
+                WidthRequest="200"
+                Margin="50,20,0,0"
+                BackgroundColor="White"
+                DateSelected="contractEndTime_DateSelected"/>
+            <Label 
+                x:Name="lblendtime"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="Black"
+                />
+
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Maaş:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="White"
+                />
+
+            <Slider
+                Minimum="0.1"
+                Maximum="200"
+                x:Name="sliderSalary"
+                ValueChanged="sliderSalary_ValueChanged"
+                WidthRequest="200"
+                Margin="210,20,0,0"
+                ThumbColor="Black"
+                BackgroundColor="White"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+            <Label
+                x:Name="lblSalary"
+                VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="Red"/>
+
+
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="Forma Numarası"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="20"
+                   TextColor="White"/>
+            <Stepper x:Name="shirtNumber" BackgroundColor="White" Margin="100,0,0,0"
+                Minimum="1" Maximum="99" Increment="1" ValueChanged="Stepper_ValueChanged"/>
+            <Label
+                x:Name="lblShirtNumber"
+                VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="Navy"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Button
+                x:Name="Save"
+                Text="Kaydet"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Save_Clicked"
+                />
+
+            <Button
+                x:Name="List"
+                Text="Listele"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="List_Clicked"
+                />
+
+            <Button
+                x:Name="Delete"
+                Text="Sil"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Delete_Clicked"
+                />
+
+            <Button
+                x:Name="Update"
+                Text="Güncelle"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Update_Clicked"
+                />
+        </HorizontalStackLayout>
+
+
+        <CollectionView x:Name="lstTeamBaller" SelectionMode="Single" SelectionChanged="lstTeamBaller_SelectionChanged" Margin="50,0,0,0"
+                        BackgroundColor="Purple" Opacity="1" >
+            <CollectionView.ItemTemplate >
+                <DataTemplate>
+                    <Grid ColumnDefinitions="auto,auto,auto,auto,auto" RowDefinitions="50,50" Padding="20" ColumnSpacing="20">
+                        <Label  Text="{Binding BallerName }"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding BallerSurname}"/>
+                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding TeamName}"/>
+                        <Label Grid.Row="0" Grid.Column="3" Text="{Binding ContractStartTime}"/>
+                        <Label Grid.Row="0" Grid.Column="4" Text="{Binding ContractEndTime}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </VerticalStackLayout>
+
+</ContentPage>

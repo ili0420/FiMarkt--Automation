@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.SignUp"
+             BackgroundColor="#4682b4">
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="ÜYE GİRİŞ FORMU" FontAttributes="Bold" Margin="120,0,0,0" TextColor="WhiteSmoke"
+               FontSize="40"
+               HorizontalTextAlignment="Start">
+            </Label>
+
+            <HorizontalStackLayout  
+            Margin="0,50,0,150">
+
+                <VerticalStackLayout>
+                    <Label Text="ADI :" 
+                       TextColor="White"
+                       Margin="0,0,0,5"/>
+
+                    <Entry x:Name="memberName"
+                       TextColor="Black"
+                    BackgroundColor="WhiteSmoke"
+                    Margin="30,0,0,20"
+                    Placeholder=" Adınızı Giriniz"
+                    ClearButtonVisibility="WhileEditing"
+                    WidthRequest="220"
+                    HeightRequest="40">
+                    </Entry>
+
+                    <Label x:Name="lblBirthday"
+                       Text=" DOĞUM TARİHİ:" 
+                       TextColor="White"
+                       Margin="0,0,0,5"/>
+
+                    <DatePicker x:Name="dtPicker"
+                    BackgroundColor="WhiteSmoke"    
+                    Margin="30,0,0,20"
+                    WidthRequest="220"
+                    HeightRequest="40"
+                      DateSelected="dtPicker_DateSelected"   >
+                    </DatePicker>
+
+                    <Label Text="E-POSTA :" 
+                       TextColor="White"
+                       Margin="0,0,0,5"/>
+
+                    <Entry x:Name="memberMail"
+                       TextColor="Black"
+                       BackgroundColor="WhiteSmoke"
+                       Margin="30,0,0,20"
+                       Placeholder="E-Posta Adresini Giriniz"
+                    ClearButtonVisibility="WhileEditing"
+                    WidthRequest="220"
+                    HeightRequest="40">
+                    </Entry>
+
+                    <Label Text="ŞİFRE :" 
+                       TextColor="White"
+                       Margin="0,0,0,5">
+                    </Label>
+
+                    <Entry x:Name="memberPassword"
+                       TextColor="Black"
+                       BackgroundColor="WhiteSmoke"
+                       Placeholder="Şifrenizi Giriniz"
+                       WidthRequest="220"
+                       HeightRequest="40"
+                       Margin="30,0,0,20"
+                       ClearButtonVisibility="WhileEditing"
+                       IsPassword="True">
+                    </Entry>
+
+                </VerticalStackLayout>
+
+
+                <VerticalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="SOYADI :" 
+                       TextColor="White"
+                       Margin="100,0,0,5">
+                        </Label>
+
+                        <Entry x:Name="memberSurname"
+  
+                       BackgroundColor="WhiteSmoke"
+                       Margin="-5,25,0,20"
+                       Placeholder="Soyadınızı Giriniz"
+                       ClearButtonVisibility="WhileEditing"
+                       WidthRequest="220"
+                       HeightRequest="40">
+                        </Entry>
+                    </HorizontalStackLayout>
+
+
+                    <Label Text="CİNSİYET :" 
+                       TextColor="White"
+                       Margin="100,0,0,5">
+                    </Label>
+                    <HorizontalStackLayout>
+                        <RadioButton x:Name="man" Content="ERKEK" BackgroundColor="WhiteSmoke" 
+                      WidthRequest="100" Margin="158,-100,0,0"
+                                 CheckedChanged="man_CheckedChanged"  
+                             CornerRadius="3"></RadioButton>
+                        <RadioButton Content="KADIN" BackgroundColor="WhiteSmoke" 
+                      WidthRequest="100" Margin="20,0,0,100"
+                       x:Name="woman" CornerRadius="3"
+                                 CheckedChanged="woman_CheckedChanged"  ></RadioButton>
+                    </HorizontalStackLayout>
+
+                    <Label Text="ŞEHİR :" TextColor="White"
+                   Margin="100,-75,0,0"
+                       ></Label>
+                    <Picker x:Name="pickerCity"
+                        BackgroundColor="WhiteSmoke"
+                         WidthRequest="220"
+                    
+                       HeightRequest="40"
+                    Margin="150,5,70,40"
+                    
+                        ></Picker>
+
+                    <HorizontalStackLayout>
+                        <Label Text="ŞİFRE TEKRAR :" TextColor="White"
+                    Margin="100,-30,0,30"
+                       ></Label>
+                        <Entry BackgroundColor="WhiteSmoke"
+                       Placeholder="Şifrenizi Giriniz"
+                       Margin="-50,0,0,300"
+                    WidthRequest="220"
+                            HeightRequest="40"
+                       ClearButtonVisibility="WhileEditing"
+                       IsPassword="True"
+                       x:Name="memberPasswordAgain"></Entry>
+
+
+                    </HorizontalStackLayout>
+
+
+
+
+                </VerticalStackLayout>
+
+
+
+            </HorizontalStackLayout>
+
+
+
+
+
+
+            <Button Text=" KAYDET"
+                      x:Name="buttonSave"
+                      BackgroundColor="#00cd66"
+                      FontSize="17"
+                     Margin="0,-400,0,0"
+                      WidthRequest="630"
+                     HeightRequest="15"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    CornerRadius="4"
+                       FontAttributes="Bold"
+                     Clicked="buttonSave_Clicked"
+                    ></Button>
+
+            <Button Text="VAZGEÇ"
+                     BackgroundColor="#cd2626"
+                    WidthRequest="630"
+                     FontSize="17"
+                    HeightRequest="15"
+                     Margin="0,20,0,0"
+                     Clicked= "ButtonVazgec_Clicked"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    CornerRadius="4"
+                        FontAttributes="Bold"
+                    ></Button>
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+
+
+
+
+</ContentPage>

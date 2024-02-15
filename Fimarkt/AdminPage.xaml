@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.AdminPage"
+             BackgroundImageSource="background_image.png">
+    
+
+        <ContentPage.MenuBarItems>
+            <MenuBarItem Text="FUTBOLCU EKLE">
+                <MenuFlyoutItem Text="FUTBOLCU EKLE" Clicked="btnAddBaller_Clicked">
+
+                </MenuFlyoutItem>
+            </MenuBarItem>
+
+            <MenuBarItem Text="ÜLKE EKLE" >
+            <MenuFlyoutItem Clicked="btnAddCountry_Clicked"  Text="ÜLKE EKLE">
+               
+            </MenuFlyoutItem>
+            </MenuBarItem>
+
+            <MenuBarItem Text="TAKIM EKLE" >
+                <MenuFlyoutItem Text="TAKIM EKLE" Clicked="btnAddTeam_Clicked" >
+
+                </MenuFlyoutItem>
+            </MenuBarItem>
+            <MenuBarItem Text="LİGİ KAZANAN TAKIMLAR">
+            <MenuFlyoutItem    Clicked="btnLeagueWinners_Clicked"  Text="LİGİ KAZANAN TAKIMLAR" >
+
+                </MenuFlyoutItem>
+            </MenuBarItem>
+            <MenuBarItem  Text="LİG EKLE">
+            <MenuFlyoutItem  Clicked="btnAddLeague_Clicked" Text="LİG EKLE">
+
+                </MenuFlyoutItem>
+            </MenuBarItem>
+            <MenuBarItem>
+                <MenuFlyoutItem   Clicked="btnAddLeague_Clicked">
+
+                </MenuFlyoutItem>
+            </MenuBarItem>
+            <MenuBarItem Text="Lige Takım Ekleme">
+            <MenuFlyoutItem   Clicked="btnAddLeagueTeam_Clicked" Text="Lige Takım Ekleme">
+
+                </MenuFlyoutItem>
+            </MenuBarItem>
+
+            <MenuBarItem Text="Futbolcu Performans" >
+            <MenuFlyoutItem Clicked="btnAddBallerPerformance_Clicked"  Text="Futbolcu Performans">
+
+                </MenuFlyoutItem>
+            </MenuBarItem>
+
+        <MenuBarItem Text="Takıma Futbolcu Ekleme" >
+            <MenuFlyoutItem Clicked="BallerToTeam_Clicked" Text="Takıma Futbolcu Ekleme">
+
+            </MenuFlyoutItem>
+        </MenuBarItem>
+
+    </ContentPage.MenuBarItems>
+        
+</ContentPage>

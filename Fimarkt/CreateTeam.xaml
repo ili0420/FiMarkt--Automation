@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.CreateTeam"
+             BackgroundImageSource="wallpaper.jpg">
+    <ScrollView>
+    <VerticalStackLayout>
+       
+
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+             Margin="0,30,0,0"
+            Text="Takım Adı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+           FontAttributes="Bold"
+                FontSize="20"
+                TextColor="White"/>
+            <Entry
+                x:Name="teamName"
+                Placeholder="Takımın adını giriniz..."
+                BackgroundColor="White"
+                WidthRequest="200"
+                Margin="110,40,0,0"
+                TextColor="Black"/>
+
+
+
+        </HorizontalStackLayout>
+
+
+
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Ülke:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+             FontSize="20"
+             TextColor="White"
+                FontAttributes="Bold"
+              Margin="0,30,0,0"
+                />
+            <Picker
+                
+                x:Name="originPicker"
+                WidthRequest="200"
+                BackgroundColor="White"
+                TextColor="Red"
+                Margin="160,30,0,0"
+                SelectedIndexChanged="originPicker_SelectedIndexChanged"/>
+
+            <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+             
+                x:Name="lblCountry"
+                
+                />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+                Margin="0,30,0,0"
+            Text="Stadyum Adı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="WhiteSmoke"
+                />
+            <Entry
+                x:Name="stadiumName"
+                Placeholder=" Stadyum İsmini giriniz..."
+                PlaceholderColor="Grey"
+                BackgroundColor="White"
+                WidthRequest="200"
+                Margin="80,40,0,0"
+                TextColor="Black"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Stadium Kapasitesi:"
+            VerticalOptions="Center" 
+            Margin="0,30,0,0"
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="White"
+                FontAttributes="Bold"
+                />
+
+            <Slider
+                Minimum="1"
+                Maximum="130"
+                x:Name="sliderStadiumCapacity"
+                ValueChanged="sliderStadiumCapacity_ValueChanged"
+                WidthRequest="200"
+                Margin="20,30,0,0"
+                BackgroundColor="White"
+                ThumbColor="Black"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+            <Label
+                x:Name="lblStadiumCapacity"
+                VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="White"/>
+
+
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Takım Resmi :"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+             FontSize="20"
+                Margin="0,30,0,0"
+             FontAttributes="Bold"
+             TextColor="White"
+                />
+            <Entry
+                BackgroundColor="White"
+               WidthRequest="200"
+                Margin="80,40,0,0"
+                Placeholder="Resmin url kısmını giriniz"
+                TextColor="Black"
+                x:Name="imageSource"/>
+            <Button
+                x:Name="pickCupFile"
+                Text="Resim Seç"
+                BackgroundColor="Turquoise"
+                WidthRequest="150"
+                Margin="10,40,0,0"
+                HeightRequest="30"
+                Clicked="pickFile_Clicked"
+                />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10" Margin="0,40,0,0">
+
+            <Button
+                x:Name="Save"
+                Text="Kaydet"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Save_Clicked"
+                Margin="0,0,0,50"
+                />
+
+            <Button
+                x:Name="List"
+                Text="Listele"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="List_Clicked"
+                Margin="0,0,0,50"
+                />
+
+            <Button
+                x:Name="Delete"
+                Text="Sil"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Delete_Clicked"
+                Margin="0,0,0,50"
+                />
+
+            <Button
+                x:Name="Update"
+                Text="Güncelle"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Update_Clicked"
+                Margin="0,0,0,50"
+                />
+        </HorizontalStackLayout>
+        
+
+        <CollectionView x:Name="lstTeam" SelectionMode="Single" SelectionChanged="lstTeam_SelectionChanged" Opacity="0.7"
+                        BackgroundColor="Black">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="80,auto" RowDefinitions="100,100">
+                        <Label Text="{Binding teamName}" TextColor="White" Margin="20,0,0,0"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding teamStadiumName} " TextColor="White"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

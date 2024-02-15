@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fimarkt.Performance"
+             BackgroundImageSource="wallpaper.jpg">
+    <VerticalStackLayout>
+
+
+
+
+
+            <HorizontalStackLayout Spacing="10" >
+                <Label 
+            Text="Futbolcu:"
+            Margin="0,30,0,0"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+             FontSize="20"
+             FontAttributes="Bold"
+             TextColor="White"
+                />
+                <Picker
+                
+                x:Name="ballerPicker"
+                WidthRequest="200"
+                BackgroundColor="White"
+                  Margin="110,40,0,0"
+                TextColor="Black"
+                SelectedIndexChanged="ballerPicker_SelectedIndexChanged"/>
+
+                <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"
+                x:Name="lblBaller"
+                
+                />
+
+            </HorizontalStackLayout>
+
+
+
+
+        <HorizontalStackLayout Spacing="10" >
+            <Label 
+            Text="Lig:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+             FontSize="20"
+             TextColor="White"
+             FontAttributes="Bold"
+                Margin="0,20,0,0"
+                />
+            <Picker
+                
+                x:Name="leaguePicker"
+                WidthRequest="200"
+                BackgroundColor="White"
+                Margin="165,40,0,0"
+                TextColor="Red"
+                SelectedIndexChanged="leaguePicker_SelectedIndexChanged"/>
+
+            <Label 
+                Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"
+                x:Name="lblLeague"
+                
+                />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Sezon Başlangıç Yılı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,20,0,0"
+                TextColor="White"
+                FontAttributes="Bold"/>
+            <Slider
+                Minimum="1900"
+                Maximum="2024"
+                x:Name="startSlider"
+                ValueChanged="startSlider_ValueChanged"
+                WidthRequest="200"
+                BackgroundColor="White"
+                ThumbColor="Black"
+                Margin="20,20,0,0"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+            <Label 
+                x:Name="lblStartYear"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="White"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Sezon Bitiş Yılı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                Margin="0,20,0,0"
+                TextColor="White"/>
+
+            <Slider
+                Minimum="1900"
+                Maximum="2024"
+                
+                x:Name="endSlider"
+                ValueChanged="endSlider_ValueChanged"
+                WidthRequest="200"
+                BackgroundColor="White"
+                ThumbColor="Black"
+                Margin="70,20,0,0"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+
+            <Label 
+                x:Name="lblEndYear"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Gol Sayısı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                FontAttributes="Bold"
+                Margin="0,20,0,0"
+                TextColor="White"/>
+
+            <Slider
+                Minimum="0"
+                Maximum="1500"
+                
+                x:Name="goalSlider"
+                ValueChanged="goalSlider_ValueChanged"
+                WidthRequest="200"
+                BackgroundColor="White"
+                Margin="120,20,0,0"
+                ThumbImageSource="ilhan1.jpg"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+
+            <Label 
+                x:Name="lblGoal"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label 
+                Text="Asist Sayısı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="White"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"/>
+
+            <Slider
+                Minimum="0"
+                Maximum="1500"
+                
+                x:Name="asistSlider"
+                ValueChanged="asistSlider_ValueChanged"
+                WidthRequest="200"
+                Margin="110,20,0,0"
+                BackgroundColor="White"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+
+            <Label 
+                x:Name="lblAsist"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="Kırmızı Kart:"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0"
+                   TextColor="White"/>
+            <Stepper x:Name="redCard" WidthRequest="300" Margin="100,0,0,0" BackgroundColor="White"
+                Minimum="1" Maximum="99" Increment="1" ValueChanged="redCard_ValueChanged"/>
+            <Label
+                x:Name="lblRedCard"
+                VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="Red"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="Sarı Kart:"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="20"
+                    Margin="0,20,0,0"
+                   TextColor="White"
+                  />
+            <Stepper x:Name="yellowCard" BackgroundColor="White" Margin="130,0,0,0"
+                Minimum="1" Maximum="99" Increment="1" ValueChanged="yellowCard_ValueChanged"/>
+            <Label
+                x:Name="lblYellowCard"
+                VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="Red"/>
+        </HorizontalStackLayout>
+
+
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Toplam Maç Sayısı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                   Margin="0,20,0,0"
+                   TextColor="White"
+                />
+
+            <Slider
+                Minimum="0"
+                Maximum="150"
+                
+                x:Name="totalMatchSlider"
+                ValueChanged="totalMatchSlider_ValueChanged"
+                WidthRequest="200"
+                ThumbColor="Black"
+                BackgroundColor="White"
+                Margin="50,20,0,0"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+
+            <Label 
+                x:Name="lblTotalMatch"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Toplam Oynanan Süre:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                   Margin="0,20,0,0"
+                   TextColor="White"
+                />
+
+            <Slider
+                Minimum="0"
+                Maximum="15000"
+                
+                x:Name="totalTimeSlider"
+                ValueChanged="totalTimeSlider_ValueChanged"
+                WidthRequest="200"
+                Margin="20,20,0,0"
+                BackgroundColor="White"
+                ThumbColor="Black"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+
+            <Label 
+                x:Name="lblTotalTime"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Toplam Yenilen Gol:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                   Margin="0,20,0,0"
+                   TextColor="White"
+                FontSize="20"
+                />
+
+            <Slider
+                Minimum="0"
+                Maximum="300"
+                
+                x:Name="totalGoalConcededSlider"
+                ValueChanged="totalGoalConcededSlider_ValueChanged"
+                WidthRequest="200"
+                BackgroundColor="White"
+                ThumbColor="Black"
+                MinimumTrackColor="Blue" 
+                Margin="40,20,0,0"
+                    
+                MaximumTrackColor="Red"/>
+
+            <Label 
+                x:Name="lblGoalConceded"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Toplam Gol Yenmeyen Maç Sayısı:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                TextColor="White"/>
+
+            <Slider
+                Minimum="0"
+                Maximum="150"
+                
+                x:Name="cleanSheetSlider"
+                ValueChanged="cleanSheetSlider_ValueChanged"
+                WidthRequest="200"
+                Margin="20,20,0,0"
+                BackgroundColor="White"
+                ThumbColor="Black"
+                MinimumTrackColor="Blue" 
+                MaximumTrackColor="Red"/>
+
+            <Label 
+                x:Name="lbCleanSheet"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+                FontSize="20"
+                TextColor="red"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" Margin="0,20,0,0">
+            <Button
+                x:Name="Save"
+                Text="Kaydet"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Save_Clicked"
+                />
+
+            <Button
+                x:Name="List"
+                Text="Listele"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="List_Clicked"
+                />
+
+            <Button
+                x:Name="Delete"
+                Text="Sil"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Delete_Clicked"
+                />
+
+            <Button
+                x:Name="Update"
+                Text="Güncelle"
+                WidthRequest="150"
+                HeightRequest="30"
+                Clicked="Update_Clicked"
+                />
+        </HorizontalStackLayout>
+
+
+        <CollectionView x:Name="lstPerformance" SelectionMode="Single" SelectionChanged="lstPerformance_SelectionChanged" Margin="50,0,0,0"
+                        BackgroundColor="Purple"  >
+            <CollectionView.ItemTemplate >
+                <DataTemplate>
+                    <Grid ColumnDefinitions="auto,auto,auto,auto,auto" RowDefinitions="50,50" Padding="20" ColumnSpacing="20">
+                        <Label  Text="{Binding BallerName }"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding BallerSurname}"/>
+                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding LeagueName}"/>
+                        <Label Grid.Row="0" Grid.Column="3" Text="{Binding StartYear}"/>
+                        <Label Grid.Row="0" Grid.Column="4" Text="{Binding EndYear}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
